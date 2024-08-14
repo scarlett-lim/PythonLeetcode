@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f6e2dc9-4241-422c-ad99-d9b9ec652398" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Leetcode.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Leetcode.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Q1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Q1_TwoSum.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Q1_TwoSum.py" beforeDir="false" afterPath="$PROJECT_DIR$/Q1_TwoSum.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,14 +88,11 @@
     <servers />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Q1_TwoSum.py</url>
-          <line>5</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="target-nums[item]" language="Python" />
+        <watch expression="nums[item]" language="Python" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

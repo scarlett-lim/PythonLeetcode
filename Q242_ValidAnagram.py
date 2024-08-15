@@ -2,7 +2,6 @@ from collections import defaultdict
 
 
 class Solution:
-
     # time : o(n log n)
     # space : o(n)
     # def isAnagram(self, s: str, t: str) -> bool:
@@ -18,45 +17,21 @@ class Solution:
     #     return True
 
     # Time & Space : O(n)
-    # def isAnagram(self, s: str, t: str) -> bool:
-    #     if len(s) != len(t):
-    #         return False
-    #
-    #     dictionary = {}
-    #
-    #     for i in range(len(s)):
-    #         if s[i] in dictionary:
-    #             dictionary[s[i]] += 1
-    #
-    #     for j in range(len(t)):
-    #         if t[j] in dictionary:
-    #             dictionary[t[j]] -= 1
-    #             if dictionary[t[j]] == 0:
-    #                 dictionary.pop(t[j])
-    #         else:
-    #             dictionary[t[j]] = j
-    #
-    #     if dictionary == {}:
-    #         return True
-    #     else:
-    #         return False
-
     def isAnagram(self, s: str, t: str) -> bool:
         if len(s) != len(t):
             return False
 
-        count = defaultdict(int)
+        dictionary = defaultdict(int)
 
-        for char in s:
-            count[char] += 1
+        for item in s:
+            dictionary[item] += 1
 
-        for char in t:
-            count[char] -= 1
-            if count[char] == 0:
-                del count[char]
+        for item in t:
+            dictionary[item] -= 1
+            if dictionary[item] == 0:
+                del dictionary[item]
 
-        return not count
-
+        return not dictionary
 
 def run_tests():
     solution = Solution()

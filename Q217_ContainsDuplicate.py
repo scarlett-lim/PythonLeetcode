@@ -18,6 +18,9 @@ class Solution:
     #         dict[value]=i
     #     return False
 
+
+    # time : O(n log n)
+    # space: O(n)
     def containsDuplicate(self, nums: List[int]) -> bool:
         nums.sort()
         for item in range(len(nums)-1):

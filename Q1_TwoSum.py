@@ -13,15 +13,30 @@ class Solution:
 
     # Dictionary
     def two_sum(self, nums: List[int], target: int) -> List[int]:
-        dictionary = {}
-        index = 0
-        for item in range(len(nums)):
-            if dictionary.__contains__(target-nums[item]):
-                return[dictionary[target-nums[item]], item]
-            else:
-                dictionary[nums[item]] = index
-                index += 1
+        # dictionary = {}
+        # index = 0
+        # for item in range(len(nums)):
+        #     complement = target - nums[item]
+        #     if dictionary.__contains__(complement):
+        #         return[dictionary[complement], item]
+        #     else:
+        #         dictionary[nums[item]] = index
+        #         index += 1
+        # return []
+        # Create a dictionary to store the complement and its index
+        num_to_index = {}
 
+        # Iterate over the list
+        for i, num in enumerate(nums):
+            # Calculate the complement
+            complement = target - num
+
+            # If the complement is in the dictionary, return the indices
+            if complement in num_to_index:
+                return [num_to_index[complement], i]
+
+            # Otherwise, store the index of the current number
+            num_to_index[num] = i
         return []
 
 

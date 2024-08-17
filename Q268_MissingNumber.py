@@ -3,6 +3,7 @@ from typing import List
 
 class Solution:
 
+    # Sorting
     # Time : O(n log n)
     # Space : O(1)
     # def missingNumber(self, nums: List[int]) -> int:
@@ -15,14 +16,24 @@ class Solution:
     #     return len(nums)
 
 
+    # Set
     # O(n)
+    # def missingNumber(self, nums: List[int]) -> int:
+    #     numSet = set(nums)
+    #
+    #     for i in range(len(nums)+1):
+    #         if i not in numSet:
+    #             return i
+
+    # Find the sum of range and nums then minus
+    # Time O(n)
+    # Space O(1)
     def missingNumber(self, nums: List[int]) -> int:
-        numSet = set(nums)
+        result = len(nums)
 
-        for i in range(len(nums)+1):
-            if i not in numSet:
-                return i
-
+        for i in range(len(nums)):
+            result += (i - nums[i])
+        return result
 
 def run_tests():
     solution = Solution()

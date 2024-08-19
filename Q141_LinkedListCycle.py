@@ -1,11 +1,7 @@
 from typing import Optional
 
+from Module.ListNodeClass import ListNode
 
-# Definition for singly-linked list.
-class ListNode:
-    def __init__(self, x):
-        self.next = None
-        self.val = x
 
 # time O(n)
 # space O(1)

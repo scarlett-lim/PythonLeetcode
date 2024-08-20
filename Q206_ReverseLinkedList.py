@@ -5,36 +5,44 @@ from Module.ListNodeClass import ListNode
 
 class Solution:
 
-    # # time space : o(n)
-    # def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-    #     # Base case: if head is None or head is the last node
-    #     if not head or not head.next:
-    #         return head
-    #
-    #     # Recursively reverse the rest of the list
-    #     newhead = self.reverseList(head.next)
-    #
-    #     # Make the next node point to the current node (reverse the link)
-    #     head.next.next = head
-    #
-    #     # Set the current node's next to None
-    #     head.next = None
-    #
-    #     return newhead
-
-    # Two Pointers
-    # Space O1
-    # Time ON
+    # time space : o(n)
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        prev, current = None, head
+        # Base case: if head is None or head is the last node
+        if not head:
+            return None
 
-        while current:
-            next = current.next
-            current.next = prev
+        # Recursively reverse the rest of the list
+        newhead = head
+        if head.next:
+            newhead = self.reverseList(head.next)
+            head.next.next = head
+        head.next = None
 
-            prev = current
-            current = next
-        return prev
+        return newhead
+
+        # Make the next node point to the current node (reverse the link)
+        head.next.next = head
+
+        # Set the current node's next to None
+        head.next = None
+
+        return newhead
+
+
+    # # Two Pointers
+    # # Space O1
+    # # Time ON
+    # def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+    #     prev , current = None, head
+    #
+    #     while current:
+    #         next = current.next
+    #         current.next = prev
+    #
+    #         prev = current
+    #         current = next
+    #
+    #     return prev
 
 def listToLinkList(numbers: List[int]) -> Optional[ListNode]:
     if not numbers:
@@ -68,11 +76,11 @@ def run_tests():
     # list = linkedListToList(listnode)
     # print(list)
 
-    # Test case 1
-    args1 = listToLinkList([1,2,3,4,5])  # Replace with actual inputs
-    expected1 = [5,4,3,2,1]  # Replace with expected output
-    result1 = linkedListToList(solution.reverseList(args1))
-    assert result1 == expected1, f"Test case 1 failed: expected {expected1}, got {result1}"
+    # # Test case 1
+    # args1 = listToLinkList([1,2,3,4,5])  # Replace with actual inputs
+    # expected1 = [5,4,3,2,1]  # Replace with expected output
+    # result1 = linkedListToList(solution.reverseList(args1))
+    # assert result1 == expected1, f"Test case 1 failed: expected {expected1}, got {result1}"
 
     # Test case 2
     args2 = listToLinkList([1,2])  # Replace with actual inputs

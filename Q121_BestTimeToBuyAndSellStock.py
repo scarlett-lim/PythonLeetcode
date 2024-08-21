@@ -2,8 +2,31 @@ from typing import List
 
 
 class Solution:
+
+    # Two pointers
+    # Time ON
+    # Space O1
     def maxProfit(self, prices: List[int]) -> int:
-        
+        # lp to find minimum value, rp to find maximum
+        lp,rp=0,1
+
+        maxProfit = 0
+
+        while rp < len(prices):
+            if prices[rp] < prices[lp]:
+                lp = rp
+            else:
+                maxProfit = max(maxProfit,prices[rp]-prices[lp])
+            rp+=1
+        return maxProfit
+
+
+
+
+
+
+
+
 
 
 

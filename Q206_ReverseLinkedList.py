@@ -29,11 +29,11 @@ class Solution:
         return newhead
 
 
-    # # Two Pointers
-    # # Space O1
-    # # Time ON
+    # Two Pointers
+    # Space O1
+    # Time ON
     # def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-    #     prev , current = None, head
+    #     prev, current = None, head
     #
     #     while current:
     #         next = current.next
@@ -43,6 +43,7 @@ class Solution:
     #         current = next
     #
     #     return prev
+
 
 def listToLinkList(numbers: List[int]) -> Optional[ListNode]:
     if not numbers:
@@ -76,7 +77,7 @@ def run_tests():
     # list = linkedListToList(listnode)
     # print(list)
 
-    # # Test case 1
+    # Test case 1
     # args1 = listToLinkList([1,2,3,4,5])  # Replace with actual inputs
     # expected1 = [5,4,3,2,1]  # Replace with expected output
     # result1 = linkedListToList(solution.reverseList(args1))

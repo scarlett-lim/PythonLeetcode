@@ -11,21 +11,21 @@ class Solution:
     # space o(1)
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
         dummy = ListNode()
-        lastNode = dummy
+        currentDummyNode = dummy
 
         while list1 and list2:
             if list1.val < list2.val:
-                lastNode.next = list1
+                currentDummyNode.next = list1
                 list1 = list1.next
             else:
-                lastNode.next = list2
+                currentDummyNode.next = list2
                 list2 = list2.next
-            lastNode = lastNode.next
+            currentDummyNode = currentDummyNode.next
 
         if list1:
-            lastNode.next = list1
+            currentDummyNode.next = list1
         else:
-            lastNode.next = list2
+            currentDummyNode.next = list2
 
         return dummy.next
 

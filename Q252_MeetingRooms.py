@@ -14,12 +14,10 @@ class Solution:
         # expression = A single expression that is evaluated and returned.
         # i = arguments = [Interval(0, 30), Interval(5, 10), Interval(15, 20)]
         # i.start mean the start time for each pair in i
-        intervals.sort(key=lambda i : i.start)
+        intervals.sort(key = lambda i:i.start)
 
-        for i in range(1, len(intervals)):
-            i1 = intervals[i].start
-            i2 = intervals[i-1].end
-            if i1 < i2 :
+        for item in range(1,len(intervals)):
+            if intervals[item].start < intervals[item-1].end:
                 return False
         return True
 

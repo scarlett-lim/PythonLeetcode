@@ -7,43 +7,44 @@ from Module.ListNodeClass import linkedListToList
 class Solution:
 
     # time space : o(n)
-    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        # Base case: if head is None or head is the last node
-        if not head:
-            return None
-
-        # Recursively reverse the rest of the list
-        newhead = head
-        if head.next:
-            newhead = self.reverseList(head.next)
-            head.next.next = head
-        head.next = None
-
-        return newhead
-
-        # Make the next node point to the current node (reverse the link)
-        head.next.next = head
-
-        # Set the current node's next to None
-        head.next = None
-
-        return newhead
+    # def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+    #     # Base case: if head is None or head is the last node
+    #     if not head:
+    #         return None
+    #
+    #     # Recursively reverse the rest of the list
+    #     newhead = head
+    #     if head.next:
+    #         newhead = self.reverseList(head.next)
+    #         head.next.next = head
+    #     head.next = None
+    #
+    #     return newhead
+    #
+    #     # Make the next node point to the current node (reverse the link)
+    #     head.next.next = head
+    #
+    #     # Set the current node's next to None
+    #     head.next = None
+    #
+    #     return newhead
 
 
     # Two Pointers
     # Space O1
     # Time ON
-    # def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-    #     prev, current = None, head
-    #
-    #     while current:
-    #         next = current.next
-    #         current.next = prev
-    #
-    #         prev = current
-    #         current = next
-    #
-    #     return prev
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        prev,current = None,head
+
+        while current:
+            next = current.next
+            current.next = prev
+
+            prev = current
+            current = next
+
+        return prev
+
 
 
 def run_tests():

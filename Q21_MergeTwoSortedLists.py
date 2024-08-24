@@ -8,27 +8,26 @@ from Module.ListNodeClass import linkedListToList
 class Solution:
 
     # time o(n+m)
-    # space o1
+    # space o(1)
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
         dummy = ListNode()
-        tail = dummy
+        lastNode = dummy
 
         while list1 and list2:
             if list1.val < list2.val:
-                tail.next=list1
+                lastNode.next = list1
                 list1 = list1.next
             else:
-                tail.next = list2
+                lastNode.next = list2
                 list2 = list2.next
-            tail = tail.next
+            lastNode = lastNode.next
 
         if list1:
-            tail.next = list1
-        elif list2:
-            tail.next=list2
+            lastNode.next = list1
+        else:
+            lastNode.next = list2
 
         return dummy.next
-
 
 def run_tests():
     solution = Solution()

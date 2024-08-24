@@ -8,11 +8,15 @@ class Solution:
         res = []
 
         for i in range(len(intervals)):
+            # Checking for Non-Overlapping Case - Insert Before Current Interval
             if newInterval[1] < intervals[i][0]:
                 res.append(newInterval)
+                # combine intervals to the result
                 return res + intervals[i:]
+            # Checking for Non-Overlapping Case - Current Interval Before New Interval
             elif newInterval[0] > intervals[i][1]:
                 res.append(intervals[i])
+            # if overlapping
             else:
                 newInterval = [min(newInterval[0],intervals[i][0]),max(newInterval[1],intervals[i][1])]
         res.append(newInterval)

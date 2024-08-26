@@ -5,14 +5,16 @@ from typing import List
 class Solution:
     # Time Spcae O(m*n)
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        res = defaultdict(list)
+        res = defaultdict(list) # handle edge case to make the default dict to list
         for s in strs:
             count = [0] * 26
             for c in s:
                 count[ord(c)-ord("a")] +=1
+            # put tuple bcuz list cnt be key in dictionary
             res[tuple(count)].append(s)
 
         return res.values()
+
 
 
 def run_tests():
@@ -37,7 +39,7 @@ def run_tests():
     assert result3 == expected3, f"Test case 3 failed: expected {expected3}, got {result3}"
 
     # Add more test cases as needed
-    print("All test cases passed!")
+    print("Q49 All test cases passed!")
 
 
 if __name__ == "__main__":

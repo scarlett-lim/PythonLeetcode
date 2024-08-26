@@ -30,7 +30,7 @@ class Solution:
     #     return newhead
 
 
-    # Two Pointers
+    # TwoPointers
     # Space O1
     # Time ON
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:

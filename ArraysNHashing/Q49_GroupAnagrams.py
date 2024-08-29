@@ -16,25 +16,6 @@ class Solution:
         return dictionary.values()
 
 
-
-
-
-
-
-
-
-        # res = defaultdict(list) # handle edge case to make the default dict to list
-        # for s in strs:
-        #     count = [0] * 26
-        #     for c in s:
-        #         count[ord(c)-ord("a")] +=1
-        #     # put tuple bcuz list cnt be key in dictionary
-        #     res[tuple(count)].append(s)
-        #
-        # return res.values()
-
-
-
 def run_tests():
     solution = Solution()
 

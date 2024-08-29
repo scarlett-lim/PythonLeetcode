@@ -2,31 +2,17 @@ from typing import List
 
 
 class Solution:
-    def solve(self, nums):
-        setList = set()
-        for item in nums:
-            if item in setList:
-                return True
-            setList.add(item)
-        return False
 
-    # def containsDuplicate(self, nums: List[int]) -> bool:
-    #     dict = {}
-    #     for i, value in enumerate(nums):
-    #         if value in dict:
-    #             return True
-    #         dict[value]=i
-    #     return False
-
-
-    # time : O(n log n)
-    # space: O(n)
+    # Time Space O(N)
     def containsDuplicate(self, nums: List[int]) -> bool:
-        nums.sort()
-        for item in range(len(nums)-1):
-            if nums[item] == nums[item+1]:
+        numberSet = set()
+
+        for i in nums:
+            if i in numberSet:
                 return True
+            numberSet.add(i)
         return False
+
 
 
 def run_tests():

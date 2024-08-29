@@ -2,36 +2,10 @@ from collections import defaultdict
 
 
 class Solution:
-    # time : o(n log n)
-    # space : o(n)
-    # def isAnagram(self, s: str, t: str) -> bool:
-    #     if len(s) != len(t):
-    #         return False
-    #
-    #     sorted_s = ''.join(sorted(s))
-    #     sorted_t = ''.join(sorted(t))
-    #
-    #     for item in range(len(sorted_s)):
-    #         if sorted_s[item] != sorted_t[item]:
-    #             return False
-    #     return True
 
     # Time & Space : O(n)
     def isAnagram(self, s: str, t: str) -> bool:
-        if len(s) != len(t):
-            return False
-
-        dictionary = defaultdict(int)
-
-        for item in s:
-            dictionary[item] += 1
-
-        for item in t:
-            dictionary[item] -= 1
-            if dictionary[item] == 0:
-                del dictionary[item]
-
-        return not dictionary
+       pass
 
 def run_tests():
     solution = Solution()

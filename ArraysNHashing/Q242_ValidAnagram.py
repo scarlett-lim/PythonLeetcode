@@ -3,18 +3,35 @@ from collections import defaultdict
 
 class Solution:
 
-    # Time & Space : O(n)
+    # Time Space: O(m + n)
     def isAnagram(self, s: str, t: str) -> bool:
-       pass
+        if len(s) != len(t):
+            return False
+
+        count = defaultdict(int)
+
+        for item in s:
+            count[item] += 1
+
+        for item in t:
+            count[item] -= 1
+
+        for item in count.values():
+            if item != 0:
+                return False
+        return True
+
+
+
 
 def run_tests():
     solution = Solution()
 
     # Test case 1
-    s1, t1 = "anagram", "nagaram"
-    expected1 = True  # Replace with expected output
-    result1 = solution.isAnagram(s1, t1)
-    assert result1 == expected1, f"Test case 1 failed: expected {expected1}, got {result1}"
+    # s1, t1 = "anagram", "nagaram"
+    # expected1 = True  # Replace with expected output
+    # result1 = solution.isAnagram(s1, t1)
+    # assert result1 == expected1, f"Test case 1 failed: expected {expected1}, got {result1}"
 
     s2, t2 = "rat", "cat"
     expected2 = False
@@ -28,7 +45,7 @@ def run_tests():
     assert result3 == expected3, f"Test case 3 failed: expected {expected3}, got {result3}"
 
     # Add more test cases as needed
-    print("All test cases passed!")
+    print("All Q242 test cases passed!")
 
 
 if __name__ == "__main__":

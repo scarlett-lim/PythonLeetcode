@@ -8,16 +8,18 @@ class Solution:
     # space o(n)
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
         intervals.sort(key=lambda i:i[0])
-        newIntervalsList = [intervals[0]]
+        newIntervalList = [intervals[0]]
 
         for start, end in intervals[1:]:
-            lastEnd = newIntervalsList[-1][1]
-            if start <= lastEnd:
-                newIntervalsList[-1][1] = max(end,lastEnd)
-            else:
-                newIntervalsList.append([start,end])
+            lastEnd = newIntervalList[-1][1]
 
-        return newIntervalsList
+            if start <= lastEnd:
+                newIntervalList[-1][1] = max(lastEnd,end)
+            else:
+                newIntervalList.append([start,end])
+
+        return newIntervalList
+
 
 
 def run_tests():
@@ -36,7 +38,7 @@ def run_tests():
     assert result2 == expected2, f"Test case 2 failed: expected {expected2}, got {result2}"
 
     # Add more test cases as needed
-    print("All test cases passed!")
+    print("All Q56 test cases passed!")
 
 
 if __name__ == "__main__":

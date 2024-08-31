@@ -3,21 +3,21 @@ from typing import List
 
 class Solution:
 
+    # Store the first intervals and compare first intervals end time with 2nd intervals start time
     # time o(n log n)
     # space o(n)
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
-        intervals.sort(key=lambda i : i[0])
-        newList = [intervals[0]]
+        intervals.sort(key=lambda i:i[0])
+        newIntervalsList = [intervals[0]]
 
         for start, end in intervals[1:]:
-            lastEnd = newList[-1][1]
+            lastEnd = newIntervalsList[-1][1]
             if start <= lastEnd:
-                newList[-1][1] = max(end,lastEnd)
+                newIntervalsList[-1][1] = max(end,lastEnd)
             else:
-                newList.append([start,end])
+                newIntervalsList.append([start,end])
 
-        return newList
-
+        return newIntervalsList
 
 
 def run_tests():

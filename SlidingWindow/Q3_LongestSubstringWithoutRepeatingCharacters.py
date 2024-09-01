@@ -3,18 +3,16 @@ class Solution:
     # Time space O(n)
     def lengthOfLongestSubstring(self, s: str) -> int:
         lp = 0
-        longest = 0
-        setList = set()
+        maxCount = 0
+        longestSet = set()
+
         for rp in range(len(s)):
-            while s[rp] in setList:
-                setList.remove(s[lp])
+            while s[rp] in longestSet:
+                longestSet.remove(s[lp])
                 lp += 1
-            setList.add(s[rp])
-            longest = max(longest, len(setList))
-        return longest
-
-
-
+            longestSet.add(s[rp])
+            maxCount = max(maxCount,len(longestSet))
+        return maxCount
 
 
 def run_tests():

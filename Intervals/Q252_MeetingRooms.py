@@ -45,7 +45,7 @@ def run_tests():
     assert result4 == expected4, f"Test case 4 failed: expected {expected4}, got {result4}"
 
     # Add more test cases as needed
-    print("All test cases passed!")
+    print("All Q252 test cases passed!")
 
 
 if __name__ == "__main__":

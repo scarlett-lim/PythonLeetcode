@@ -5,66 +5,20 @@ class Solution:
 
     # time & space : o(n)
     def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
-        res = []
+        newIntervalList = []
 
         for i in range(len(intervals)):
-            # Checking for Non-Overlapping Case - Insert Before Current Interval
-            if newInterval[1] < intervals[i][0]:
-                res.append(newInterval)
-                # combine intervals to the result
-                return res + intervals[i:]
-            # Checking for Non-Overlapping Case - Current Interval Before New Interval
-            elif newInterval[0] > intervals[i][1]:
-                res.append(intervals[i])
-            # if overlapping
+            if newInterval[0] > intervals[i][1]:
+                newIntervalList.append(intervals[i])
+            elif newInterval[1] < intervals[i][0]:
+                newIntervalList.append(newInterval)
+                return newIntervalList + intervals[i:]
             else:
-                newInterval = [min(newInterval[0],intervals[i][0]),max(newInterval[1],intervals[i][1])]
-        res.append(newInterval)
-        return res
+                newInterval = [min(newInterval[0], intervals[i][0]), max(newInterval[1], intervals[i][1])]
+        # if intervals is empty list and wanna add new interval
+        newIntervalList.append(newInterval)
 
-
-    # Time O(n log n)
-    # Space O(n)
-    # def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
-    #     intervals.append(newInterval)
-    #     intervals.sort(key=lambda i: i[0])
-    #     newList = [intervals[0]]
-    #
-    #     for start, end in intervals[1:]:
-    #         lastEnd = newList[-1][1]
-    #         if start <= lastEnd:
-    #             newList[-1][1] = max(lastEnd,end)
-    #         else:
-    #             newList.append([start,end])
-    #
-    #     return newList
-
-
-    # Time O(n2)
-    # Space O(n)
-    # def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
-    #     for i in range(len(intervals)):
-    #         if intervals[i][0] < newInterval[0]:
-    #             if i == len(intervals) - 1:
-    #                 intervals.append(newInterval)
-    #                 break
-    #             continue
-    #         else:
-    #             intervals.insert(i, newInterval)
-    #
-    #     if not intervals:
-    #         intervals.append(newInterval)
-    #
-    #     newList = [intervals[0]]
-    #
-    #     for start, end in intervals[1:]:
-    #         lastEnd = newList[-1][1]
-    #         if start <= lastEnd:
-    #             newList[-1][1] = max(lastEnd, end)
-    #         else:
-    #             newList.append([start, end])
-    #
-    #     return newList
+        return newIntervalList
 
 
 def run_tests():
@@ -95,7 +49,7 @@ def run_tests():
     assert result4 == expected4, f"Test case 4 failed: expected {expected4}, got {result4}"
 
     # Add more test cases as needed
-    print("All test cases passed!")
+    print("All Q57 test cases passed!")
 
 
 if __name__ == "__main__":

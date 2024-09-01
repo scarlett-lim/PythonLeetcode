@@ -9,15 +9,10 @@ class Interval:
 
 class Solution:
     def can_attend_meetings(self, intervals: List[Interval]) -> bool:
-        # lambda arguments: expression
-        # arguments = The input parameters to the function, similar to parameters in a regular function.
-        # expression = A single expression that is evaluated and returned.
-        # i = arguments = [Interval(0, 30), Interval(5, 10), Interval(15, 20)]
-        # i.start mean the start time for each pair in i
-        intervals.sort(key = lambda i:i.start)
+        intervals.sort(key=lambda i: i.start)
 
-        for item in range(1,len(intervals)):
-            if intervals[item].start < intervals[item-1].end:
+        for i in range(1, len(intervals)):
+            if intervals[i].start <= intervals[i - 1].end:
                 return False
         return True
 
@@ -25,11 +20,11 @@ class Solution:
 def run_tests():
     solution = Solution()
 
-    # # Test case 1: Overlapping intervals
-    # args1 = [Interval(0, 30), Interval(5, 10), Interval(15, 20)]
-    # expected1 = False
-    # result1 = solution.can_attend_meetings(args1)
-    # assert result1 == expected1, f"Test case 1 failed: expected {expected1}, got {result1}"
+    # Test case 1: Overlapping intervals
+    args1 = [Interval(0, 30), Interval(5, 10), Interval(15, 20)]
+    expected1 = False
+    result1 = solution.can_attend_meetings(args1)
+    assert result1 == expected1, f"Test case 1 failed: expected {expected1}, got {result1}"
 
     # Test case 2
     args2 = [Interval(5, 8), Interval(9, 15)]  # Replace with actual inputs

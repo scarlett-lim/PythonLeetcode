@@ -2,21 +2,22 @@ class Solution:
 
     # Time Space : O(n)
     def isValid(self, s: str) -> bool:
+        pair = {'}': '{', ']': '[', ')': '('}
         stack = []
-        dictionary = {'}':'{' , ')':'(', ']':'['}
+
+        if not s:
+            return False
 
         for item in s:
-            if item in dictionary:
-                if stack and stack[-1] == dictionary[item]:
+            if item in pair:
+                if stack and stack[-1] == pair[item]:
                     stack.pop()
                 else:
                     return False
             else:
                 stack.append(item)
 
-        return True if not stack else False
-
-
+        return not stack
 
 
 def run_tests():
@@ -41,10 +42,10 @@ def run_tests():
     assert result3 == expected3, f"Test case 3 failed: expected {expected3}, got {result3}"
 
     # Test case 4
-    args3 = "]"  # Replace with actual inputs
-    expected3 = False  # Replace with expected output
-    result3 = solution.isValid(args3)
-    assert result3 == expected3, f"Test case 3 failed: expected {expected3}, got {result3}"
+    args4 = "(])"  # Replace with actual inputs
+    expected4 = False  # Replace with expected output
+    result4 = solution.isValid(args4)
+    assert result4 == expected4, f"Test case 3 failed: expected {expected4}, got {result4}"
 
     # Add more test cases as needed
     print("All test cases passed!")

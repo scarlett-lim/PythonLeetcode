@@ -10,17 +10,7 @@ class Solution:
 
     # Time Space : O(n)
     def isPalindrome(self, s: str) -> bool:
-        filteredString = [item.lower() for item in s if item.isalnum()]
-        lp = 0
-        rp = len(filteredString)-1
-
-        while lp < rp:
-            if filteredString[lp] == filteredString[rp]:
-                lp += 1
-                rp -= 1
-            else:
-                return False
-        return True
+        pass
 
 
 def run_tests():

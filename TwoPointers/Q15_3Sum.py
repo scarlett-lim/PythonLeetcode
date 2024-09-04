@@ -2,32 +2,32 @@ from typing import List
 
 
 class Solution:
+
+    # time O(N2)
+    # space O(1)/O(N)
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         nums.sort()
-        listOfList = []
+        result = []
 
-        # set the first value and do the two pointer for the 2nd and third
         for i, value in enumerate(nums):
-            # ensure the 2nd element is not the same number as 1st element
+            # prevent using same value for 1st number
             if i > 0 and value == nums[i-1]:
                 continue
-
-            lp, rp = i+1,len(nums)-1
+            lp, rp = i+1, len(nums)-1
             while lp < rp:
-                totalSum = nums[lp] + nums[rp] + value
-                if totalSum > 0:
-                    rp -= 1
-                elif totalSum < 0:
+                if nums[lp]+nums[rp]+value == 0:
+                    result.append([value,nums[lp],nums[rp]])
+                    # prevent using duplicate value for left pointer
+                    lp += 1
+                    while nums[lp] == nums[lp-1] and lp<rp:
+                        lp += 1
+                elif nums[lp]+nums[rp]+value < 0:
                     lp += 1
                 else:
-                    listOfList.append([nums[lp] , nums[rp] , value])
-                    lp += 1
-                    while nums[lp] == nums[lp-1] and lp < rp:
-                        lp += 1
-
-        return listOfList
+                    rp -= 1
 
 
+        return result
 
 
 

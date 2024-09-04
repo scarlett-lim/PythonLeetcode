@@ -8,9 +8,39 @@ class Solution:
     #     filteredString = [item.lower() for item in s if item.isalnum()]
     #     return filteredString == filteredString[::-1]
 
-    # Time Space : O(n)
+    # Time : O(n)
+    # Space O(1)
     def isPalindrome(self, s: str) -> bool:
-        pass
+        lp, rp = 0, len(s)-1
+
+        while lp < rp:
+            while not s[lp].isalnum() and lp<rp:
+                lp += 1
+            while not s[rp].isalnum() and rp>lp:
+                rp -= 1
+            if s[rp].lower() != s[lp].lower():
+                return False
+            lp, rp = lp+1, rp-1
+        return True
+
+        # lp,rp = 0,len(s)-1
+        #
+        # while lp < rp:
+        #     # ensure lp and rp are alnum b4 make it lowecase
+        #     while not self.isAlNum(s[lp]) and lp < rp:
+        #         lp += 1
+        #     while not self.isAlNum(s[rp]) and lp < rp:
+        #         rp -= 1
+        #     if s[lp].lower() != s[rp].lower():
+        #         return False
+        #     lp,rp = lp+1, rp-1
+        # return True
+
+
+    def isAlNum(self, char):
+        return (('a' <= char <= 'z') or
+                ('A' <= char <= 'Z') or
+                ('0' <= char <= '9'))
 
 
 def run_tests():
@@ -35,7 +65,7 @@ def run_tests():
     assert result3 == expected3, f"Test case 3 failed: expected {expected3}, got {result3}"
 
     # Add more test cases as needed
-    print("All test cases passed!")
+    print("All Q125 test cases passed!")
 
 
 if __name__ == "__main__":

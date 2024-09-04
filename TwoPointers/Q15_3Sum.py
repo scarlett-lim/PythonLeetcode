@@ -25,10 +25,7 @@ class Solution:
                     lp += 1
                 else:
                     rp -= 1
-
-
         return result
-
 
 
 def run_tests():
@@ -53,7 +50,7 @@ def run_tests():
     assert result3 == expected3, f"Test case 3 failed: expected {expected3}, got {result3}"
 
     # Add more test cases as needed
-    print("All test cases passed!")
+    print("All Q15 test cases passed!")
 
 
 if __name__ == "__main__":

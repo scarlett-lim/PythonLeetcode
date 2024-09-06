@@ -13,10 +13,29 @@ class Solution:
         while fast and fast.next:
             slow = slow.next
             fast = fast.next.next
-            if slow == fast:
+            if fast == slow:
                 return True
-
         return False
+
+
+
+
+
+
+
+
+
+
+
+        # slow, fast = head, head
+        #
+        # while fast and fast.next:
+        #     slow = slow.next
+        #     fast = fast.next.next
+        #     if slow == fast:
+        #         return True
+        #
+        # return False
 
 
 def create_linked_list_with_cycle(values, pos):
@@ -63,7 +82,7 @@ def run_tests():
     assert result3 == expected3, f"Test case 3 failed: expected {expected3}, got {result3}"
 
     # Add more test cases as needed
-    print("All test cases passed!")
+    print("All Q141 test cases passed!")
 
 
 if __name__ == "__main__":

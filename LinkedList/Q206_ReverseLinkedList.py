@@ -34,17 +34,15 @@ class Solution:
     # Space O1
     # Time ON
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        prev,current = None,head
+        prev, current = None, head
 
         while current:
             next = current.next
             current.next = prev
-
             prev = current
             current = next
 
         return prev
-
 
 
 def run_tests():
@@ -69,7 +67,7 @@ def run_tests():
     assert result3 == expected3, f"Test case 3 failed: expected {expected3}, got {result3}"
 
     # Add more test cases as needed
-    print("All test cases passed!")
+    print("All Q206 test cases passed!")
 
 
 if __name__ == "__main__":

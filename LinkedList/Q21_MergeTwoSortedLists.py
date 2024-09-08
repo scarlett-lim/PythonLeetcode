@@ -10,24 +10,26 @@ class Solution:
     # time o(n+m)
     # space o(1)
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
-        dummy = ListNode()
-        currentDummyNode = dummy
+        newListNode = ListNode()
+        currentNode = newListNode
 
         while list1 and list2:
             if list1.val < list2.val:
-                currentDummyNode.next = list1
+                currentNode.next = list1
                 list1 = list1.next
             else:
-                currentDummyNode.next = list2
+                currentNode.next = list2
                 list2 = list2.next
-            currentDummyNode = currentDummyNode.next
+            currentNode = currentNode.next
 
         if list1:
-            currentDummyNode.next = list1
+            currentNode.next = list1
         else:
-            currentDummyNode.next = list2
+            currentNode.next = list2
 
-        return dummy.next
+        return newListNode.next
+
+
 
 def run_tests():
     solution = Solution()
@@ -51,7 +53,7 @@ def run_tests():
     assert linkedListToList(result3) == expected3, f"Test case 3 failed: expected {expected3}, got {result3}"
 
     # Add more test cases as needed
-    print("All test cases passed!")
+    print("All Q21 test cases passed!")
 
 
 if __name__ == "__main__":
